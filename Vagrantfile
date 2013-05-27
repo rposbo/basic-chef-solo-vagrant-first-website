@@ -11,7 +11,6 @@ Vagrant::Config.run do |config|
           "default_site_enabled" => false
         },
         "mysite" => {
-          "name" => "my site",
           "web_root" => "/var/www/mysite"
         }
       }
