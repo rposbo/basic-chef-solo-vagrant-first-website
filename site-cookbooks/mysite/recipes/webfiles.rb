@@ -15,3 +15,12 @@ end
  	source "favicon.ico"
  	mode 0755
  end
+
+ # use a template to create a phpinfo page (just creating the file and passing in one variable)
+template "#{node.mysite.web_root}/phpinfo.php" do
+	source "testpage.php.erb"
+	mode 0755
+	variables ({
+		:title => node.mysite.name
+	})
+end
