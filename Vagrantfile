@@ -8,11 +8,16 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       "apache" => {
-          "default_site_enabled" => true
+          "default_site_enabled" => false
+        },
+        "mysite" => {
+          "name" => "my site",
+          "web_root" => "/var/www/mysite"
         }
       }
 
-    chef.cookbooks_path = ["cookbooks"]
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.add_recipe "apache2"
+    chef.add_recipe "mysite"
   end
 end
